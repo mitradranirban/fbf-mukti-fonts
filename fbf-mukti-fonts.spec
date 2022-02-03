@@ -2,10 +2,10 @@
 
 
 Version:   3.0.1
-	
+
 Release:   3
 	
-URL:       https://github.com/mitradranirban/fbf-mukti-fonts
+URL: https://github.com/mitradranirban/fbf-mukti-fonts
 
 Source0: https://github.com/mitradranirban/fbf-mukti-fonts/blob/main/fbf-mukti-fonts-3.0.1.tar.gz
 Source1: https://github.com/mitradranirban/fbf-mukti-fonts/blob/main/65-0-fbf-mukti-fonts.conf
@@ -27,8 +27,6 @@ Source1: https://github.com/mitradranirban/fbf-mukti-fonts/blob/main/65-0-fbf-mu
 %global fonts            *.otf
 	
 %global fontconfs        %{Source1}
-
-BuildArch:      noarch
 
 BuildRequires: fontforge 
 	
