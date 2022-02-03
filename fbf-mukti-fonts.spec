@@ -3,46 +3,37 @@
 
 Version:   3.0.1
 	
-Release:   2
+Release:   3
 	
-URL:       https://github.com/mitradranirban/fonts-mukti
+URL:       https://github.com/mitradranirban/fbf-mukti-fonts
+
+Source0: https://github.com/mitradranirban/fbf-mukti-fonts/blob/main/fbf-mukti-fonts-3.0.1.tar.gz
+Source1: https://github.com/mitradranirban/fbf-mukti-fonts/blob/main/65-0-fbf-mukti-fonts.conf
 	
- 
-	
- %global foundry fbf 
+%global foundry fbf 
   
- %global fontfamily    mukti         
+%global fontfamily    mukti         
 
-%global fontlicense       GPl3+ with exception
-	
-
+%global fontlicense       GPlv3+ with exception
 	
 %global fontlicenses      LICENCE.txt
 	
-
-	
 %global fontdocs          *.txt
-	
-
 	
 %global fontdocsex        %{fontlicenses}
 	
- 
-	
-
-	
 %global fontsummary      Popular GPLed Bengali OpenType  font 
-	
-
 	
 %global fonts            *.otf
 	
+%global fontconfs        %{Source1}
 
-	
-%global fontconfs0        %{_sourcedir}/fbf-mukti-fonts-3.0.1/67-font-mukti.conf
+BuildArch:      noarch
+
+BuildRequires: fontforge 
 	
  
-%global fontdescription0  %{expand:
+%global fontdescription  %{expand:
 This is a one of the earliest Open Source OpenType Bengali / Bangla font It was made by using good quality glyphs of GPLed font bng2-n from Cyberscape Multimedia 
 <https://web.archive.org/web/20021113130716/http://www.akruti.com/freedom/>. It was made for Mukta Bangla Font project.
 	
@@ -55,11 +46,16 @@ This is a one of the earliest Open Source OpenType Bengali / Bangla font It was 
 
 %sourcelist
 	
-%foundry-%fontfamily-fonts-%version.tar.gz
+ 
 	
 %prep
-	
+
 %setup
+
+chmod 755 generate.pe
+
+./generate.pe *.sfd
+
 	
 	
 %build
@@ -82,6 +78,9 @@ This is a one of the earliest Open Source OpenType Bengali / Bangla font It was 
 	
 %changelog
 
+* Thu Feb 03 2022 15:30:00 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.1-3
+- Preparing fonts from source sfd files using fontforge as required in gpl
+- collecting source from remote 
 * Wed Feb 02 2022 21:30:16 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.1-2
 - modification of spec file to remove unecessary elements 
 * Fri Jan 28 2022 21:42:16 +0530  Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.1-1
