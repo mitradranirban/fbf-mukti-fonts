@@ -1,30 +1,36 @@
 # SPDX-License-Identifqier: MIT
+%global forgeurl https://github.com/mitradranirban/fbf-mukti-fonts
 
 Version:   3.0.1
 
 Release:   4
 
-URL: https://github.com/mitradranirban/fbf-mukti-fonts
+%forgemeta
+
+URL: %{forgeurl}
 
 %global foundry fbf 
 
 %global fontfamily    mukti         
 
 %global fontlicense       GPlv3+ with exception
-	
+
 %global fontlicenses      LICENCE.txt
-	
+
 %global fontdocs          *.txt
-	
+
 %global fontdocsex        %{fontlicenses}
-	
+
 %global fontsummary       Bangla open source Opentype font
-	
+
 %global fonts            *.otf
 
 %global fontconfs        66-0-%{fontpkgname}.conf
 
 BuildRequires: fontforge 
+BuildRequires:  fontpackages-devel
+Requires:	fontpackages-filesystem
+
 
 %global fontdescription  %{expand:
 This is a one of the earliest Open Source OpenType Bengali / Bangla font It was made by using good quality glyphs of GPLed font bng2-n from Cyberscape Multimedia 
@@ -32,21 +38,21 @@ This is a one of the earliest Open Source OpenType Bengali / Bangla font It was 
 }
 
 Source0:  https://raw.githubusercontent.com/mitradranirban/fbf-mukti-fonts/main/fbf-mukti-fonts-3.0.1.tar.gz
-	
+
 %fontpkg 
 
 %prep
 
-%setup -q -n %{fontname}-%{version} 
+%setup -q -n %{foundry}-%{fontfamily}-fonts-%{version} 
  chmod 755 generate.pe
 ./generate.pe *.sfd
 
 %build
-	
+
 %fontbuild
 
 %install
-	
+
 %fontinstall
 
 %check
@@ -86,4 +92,3 @@ Source0:  https://raw.githubusercontent.com/mitradranirban/fbf-mukti-fonts/main/
 - saved source in fontforge sfd format 
 - removed microsoft volt tables from font  
  
-
