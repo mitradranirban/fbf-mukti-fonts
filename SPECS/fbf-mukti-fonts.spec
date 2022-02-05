@@ -1,67 +1,58 @@
 # SPDX-License-Identifqier: MIT
-%global forgeurl https://github.com/mitradranirban/fbf-mukti-fonts
+%global commit 6f68286463c2c4ef6959080855d6a3bdb26393aa
+%global gittag refs/tags/v3.0.2
 
-Version:   3.0.1
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+Version:   3.0.2
+Release:   1%{dist}
 
-Release:   4
-
-%forgemeta
-
-URL: %{forgeurl}
+URL: http://github.com/mitradranirban/fonts-mukti
 
 %global foundry fbf 
-
 %global fontfamily    mukti         
-
-%global fontlicense       GPlv3+ with exception
-
-%global fontlicenses      LICENCE.txt
-
-%global fontdocs          *.txt
-
+%global fontlicense       GPlv3+ with exceptions
+%global fontlicenses      LICENCE
+%global fontdocs          changelog copyright juktakkhor README.md 
 %global fontdocsex        %{fontlicenses}
-
 %global fontsummary       Bangla open source Opentype font
-
 %global fonts            *.otf
-
 %global fontconfs        66-0-%{fontpkgname}.conf
-
 BuildRequires: fontforge 
 BuildRequires:  fontpackages-devel
 Requires:	fontpackages-filesystem
-
 
 %global fontdescription  %{expand:
 This is a one of the earliest Open Source OpenType Bengali / Bangla font It was made by using good quality glyphs of GPLed font bng2-n from Cyberscape Multimedia 
 <https://web.archive.org/web/20021113130716/http://www.akruti.com/freedom/>. It was made for Mukta Bangla Font project.
 }
 
-Source0:  https://raw.githubusercontent.com/mitradranirban/fbf-mukti-fonts/main/fbf-mukti-fonts-3.0.1.tar.gz
+Source0: https://github.com/mitradranirban/fonts-mukti/archive/%{commit}.tar.gz
+Source1: https://github.com/mitradranirban/fbf-mukti-fonts/raw/main/SOURCES/66-0-fbf-mukti-fonts.conf
 
 %fontpkg 
 
 %prep
-
-%setup -q -n %{foundry}-%{fontfamily}-fonts-%{version} 
+%autosetup -n fonts-mukti-%{commit}
  chmod 755 generate.pe
 ./generate.pe *.sfd
 
 %build
-
 %fontbuild
 
 %install
-
 %fontinstall
 
 %check
-
 %fontcheck
 
 %fontfiles
 
 %changelog
+
+* Sat Feb 05 2022 22:56:29 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.2-1
+- bumped upstream to version 3.0.2 
+- change docs and licence to match upstream
+- removed forgemeta references 
 
 * Thu Feb 03 2022 19:36:29 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.1-4
 - Modified fontconfig
@@ -91,4 +82,3 @@ Source0:  https://raw.githubusercontent.com/mitradranirban/fbf-mukti-fonts/main/
 - Converted splines from quadratic to cubic
 - saved source in fontforge sfd format 
 - removed microsoft volt tables from font  
- 
