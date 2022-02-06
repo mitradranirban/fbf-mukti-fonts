@@ -1,6 +1,6 @@
 # SPDX-License-Identifqier: MIT
 %global commit 6f68286463c2c4ef6959080855d6a3bdb26393aa
-%global gittag refs/tags/v3.0.2
+%global gittag ref/tags/v3.0.2
 
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 Version:   3.0.2
