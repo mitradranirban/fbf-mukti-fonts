@@ -50,6 +50,14 @@ chmod 755 generate.pe
 * Sun Feb 06 2022 14:42:41 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.2-3
 - forgesource macro usage with updated source 
 
+* Sun Feb 06 2022 06:10:33 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.2-2
+- corrected typos
+
+* Sat Feb 05 2022 22:56:29 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.2-1 
+- bumped upstream to version 3.0.2 
+- change docs and licence to match upstream
+- removed forgemeta references 
+
 * Fri Feb 04 2022 19:36:29 +0530 Dr Anirban Mitra <mitra_anirban@yahoo.co.in> -  3.0.1-4
 - Modified fontconfig 
 - removed excess white spaces and tabs in spec file
